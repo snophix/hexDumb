@@ -30,16 +30,21 @@
 #define HELPY "Usage:\n\
     hexdumb [Options] <file>\n\
 \n\
-Display file in hex and ascii, highliting printable characters in green.\n\
+Displays files in hex and ascii, highlighting printable characters in green.\n\
 \n\
 Options:\n\
-    --no-color       Colorless diplay\n\
+    --no-color       Display without color\n\
     -o  --octal      Display bytes in octal\n\
     -d  --decimal    Display bytes in decimal\n\
     \n\
     -h  --help       Display help\n\
-    -v  --version    Display version\
-    -c  --copyright  Show Copyright"
+    -v  --version    Display version\n\
+    -c  --copyright  Show copyright\n"
+// Well uh....
+#define COPY "Hexdumb  Copyright (C) 2024  Moulay Ali \"Snophix\" Balouz\n\
+This program comes with ABSOLUTELY NO WARRANTY\n\
+This is free software, and you are welcome to redistribute it\n\
+under certain conditions; Read the GPL3 Liscence to know more.\n"
 
 
 enum PrintBase { HEX, OCTAL, DECIMAL };
@@ -80,6 +85,9 @@ int main(int argc, char* argv[]){
                 return 0;
             } else if (arg == "-v" || arg == "--version"){
                 std::cout << "The version is " << VERSION << '\n';
+                return 0;
+            } else if (arg == "-c" || arg == "--copyright") {
+                std::cout << COPY << '\n';
                 return 0;
             } else{
                 std::cout << "What is \"" << arg << "\", huh?!\n";
